@@ -1,5 +1,5 @@
 from typing import Optional
-from fastapi import FastAPI, Query, Path
+from fastapi import FastAPI, Query, Path, Body
 from pydantic import BaseModel
 
 
@@ -8,6 +8,11 @@ class Item(BaseModel):
     description: Optional[str] = None
     price: float
     tax: Optional[float] = None
+
+
+class User(BaseModel):
+    username: str
+    full_name: Optional[str] = None
 
 
 app = FastAPI()
@@ -48,3 +53,20 @@ async def create_item(
     if q:
         result.update({"q": q})
     return result
+
+
+@app.put("/items/{item_id}")
+async def update_item(
+    *,
+    item_id: int = Path(..., title="The ID of the item to get", ge=0, le=1000),
+    item: Item,
+    user: User,
+    importance: int = Body(..., gt=0),
+    q: Optional[str] = None,
+):
+    results = {"item_id": item_id, "user": user, "importance": importance}
+    if item:
+        results.update({"item": item})
+    if q:
+        results.update({"q": q})
+    return results
