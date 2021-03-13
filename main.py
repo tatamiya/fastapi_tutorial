@@ -3,25 +3,24 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 
+class Item(BaseModel):
+    name: str
+    description: Optional[str] = None
+    price: float
+    tax: Optional[float] = None
+
+
 app = FastAPI()
 
 
-class Item(BaseModel):
-    name: str
-    price: int
-    is_offer: Optional[bool] = None
+@app.post("/items/{item_id}")
+async def create_item(item_id: int, item: Item, q: Optional[str] = None):
+    item_dict = item.dict()
+    if item.tax:
+        price_with_tax = item.price + item.tax
+        item_dict.update({"price_with_tax": price_with_tax})
+    result = {"item_id": item_id, **item_dict}
 
-
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str = None):
-    return {"item_id": item_id, "q": q}
-
-
-@app.put("/items/{item_id}")
-def update_item(item_id: int, item: Item):
-    return {"item_name": item.name, "item_id": item_id}
+    if q:
+        result.update({"q": q})
+    return result
