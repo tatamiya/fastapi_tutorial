@@ -11,10 +11,15 @@ class Image(BaseModel):
 class Item(BaseModel):
     name: str
     description: Optional[str] = Field(
-        None, title="The description of the item", max_length=3000
+        None,
+        title="The description of the item",
+        max_length=3000,
+        example="A very nice Item",
     )
-    price: float = Field(..., gt=0, description="The price must be greater than zero")
-    tax: Optional[float] = None
+    price: float = Field(
+        ..., gt=0, description="The price must be greater than zero", example=35.4
+    )
+    tax: Optional[float] = Field(None, example=3.2)
     tags: Set[str] = set()
     images: Optional[List[Image]] = None
 
