@@ -1,6 +1,11 @@
-from typing import Optional
+from typing import Optional, Set, List
 from fastapi import FastAPI, Query, Path, Body
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, HttpUrl
+
+
+class Image(BaseModel):
+    url: HttpUrl
+    name: str
 
 
 class Item(BaseModel):
@@ -10,6 +15,15 @@ class Item(BaseModel):
     )
     price: float = Field(..., gt=0, description="The price must be greater than zero")
     tax: Optional[float] = None
+    tags: Set[str] = set()
+    images: Optional[List[Image]] = None
+
+
+class Offer(BaseModel):
+    name: str
+    description: Optional[str] = None
+    price: float
+    items: List[Item]
 
 
 class User(BaseModel):
@@ -72,3 +86,8 @@ async def update_item(
     if q:
         results.update({"q": q})
     return results
+
+
+@app.post("/offers/")
+async def create_offer(offer: Offer):
+    return offer
