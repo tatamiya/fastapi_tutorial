@@ -1,5 +1,5 @@
 from typing import Optional, Set, List
-from fastapi import FastAPI, Query, Path, Body
+from fastapi import FastAPI, Query, Path, Body, Cookie
 from pydantic import BaseModel, Field, HttpUrl
 
 
@@ -44,6 +44,7 @@ async def read_items(
     item_id: int = Path(..., title="The ID of the item to get", gt=0, le=1000),
     q: Optional[str] = Query(None, alias="item-query"),
     size: float = Query(..., gt=0, lt=10.5),
+    ads_id: Optional[str] = Cookie(None),
 ):
     results = {"item_id": item_id}
     if q:
