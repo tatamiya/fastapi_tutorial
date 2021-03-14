@@ -1,6 +1,6 @@
 from typing import Optional, Set, List
 from fastapi import FastAPI, Query, Path, Body, Cookie, Header
-from pydantic import BaseModel, Field, HttpUrl
+from pydantic import BaseModel, Field, HttpUrl, EmailStr
 
 
 class Image(BaseModel):
@@ -19,7 +19,7 @@ class Item(BaseModel):
     price: float = Field(
         ..., gt=0, description="The price must be greater than zero", example=35.4
     )
-    tax: Optional[float] = Field(None, example=3.2)
+    tax: Optional[float] = Field(10.5, example=3.2)
     tags: Set[str] = set()
     images: Optional[List[Image]] = None
 
@@ -33,6 +33,19 @@ class Offer(BaseModel):
 
 class User(BaseModel):
     username: str
+    full_name: Optional[str] = None
+
+
+class UserIn(BaseModel):
+    username: str
+    password: str
+    email: EmailStr
+    full_name: Optional[str] = None
+
+
+class UserOut(BaseModel):
+    username: str
+    email: EmailStr
     full_name: Optional[str] = None
 
 
@@ -60,7 +73,38 @@ async def read_items(
     return results
 
 
-@app.post("/items/{item_id}")
+items = {
+    "foo": {"name": "Foo", "price": 50.2},
+    "bar": {"name": "Bar", "description": "The Bar fighters", "price": 62, "tax": 20.2},
+    "baz": {
+        "name": "Baz",
+        "description": "There goes my baz",
+        "price": 50.2,
+        "tax": 10.5,
+    },
+}
+
+
+@app.get(
+    "/items/{item_id}/name",
+    response_model=Item,
+    response_model_include=["name", "description"],
+)
+async def read_item_name(item_id: str):
+    return items[item_id]
+
+
+@app.get(
+    "/items/{item_id}/public",
+    response_model=Item,
+    response_model_exclude=["tax"],
+    response_model_exclude_unset=True,
+)
+async def read_item_public_data(item_id: str):
+    return items[item_id]
+
+
+@app.post("/items/{item_id}", response_model=Item)
 async def create_item(
     item_id: int,
     item: Item,
@@ -82,7 +126,7 @@ async def create_item(
 
     if q:
         result.update({"q": q})
-    return result
+    return item
 
 
 @app.put("/items/{item_id}")
@@ -105,3 +149,8 @@ async def update_item(
 @app.post("/offers/")
 async def create_offer(offer: Offer):
     return offer
+
+
+@app.post("/user/", response_model=UserOut)
+async def create_user(user: UserIn):
+    return user
