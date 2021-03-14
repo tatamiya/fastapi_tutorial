@@ -1,5 +1,5 @@
 from typing import Optional, Set, List
-from fastapi import FastAPI, Query, Path, Body, Cookie
+from fastapi import FastAPI, Query, Path, Body, Cookie, Header
 from pydantic import BaseModel, Field, HttpUrl
 
 
@@ -45,10 +45,18 @@ async def read_items(
     q: Optional[str] = Query(None, alias="item-query"),
     size: float = Query(..., gt=0, lt=10.5),
     ads_id: Optional[str] = Cookie(None),
+    user_agent: Optional[str] = Header(None),
+    x_token: Optional[List[str]] = Header(None),
 ):
     results = {"item_id": item_id}
     if q:
         results.update({"q": q})
+    if ads_id:
+        results.update({"ads_id", ads_id})
+    if user_agent:
+        results.update({"User-Agent": user_agent})
+    if x_token:
+        results.update({"X-Token values": x_token})
     return results
 
 
