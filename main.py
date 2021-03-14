@@ -1,5 +1,5 @@
 from typing import Optional, Set, List
-from fastapi import FastAPI, Query, Path, Body, Cookie, Header
+from fastapi import FastAPI, Query, Path, Body, Cookie, Header, status
 from pydantic import BaseModel, Field, HttpUrl, EmailStr
 
 
@@ -108,7 +108,7 @@ async def read_item_public_data(item_id: str):
     return items[item_id]
 
 
-@app.post("/items/{item_id}", response_model=Item)
+@app.post("/items/{item_id}", response_model=Item, status_code=status.HTTP_201_CREATED)
 async def create_item(
     item_id: int,
     item: Item,
