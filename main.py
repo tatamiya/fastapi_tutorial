@@ -1,5 +1,5 @@
 from typing import Optional, Set, List
-from fastapi import FastAPI, Query, Path, Body, Cookie, Header, status
+from fastapi import FastAPI, Query, Path, Body, Cookie, Header, status, Form
 from pydantic import BaseModel, Field, HttpUrl, EmailStr
 
 
@@ -170,3 +170,8 @@ def fake_save_user(user_in: UserIn):
 async def create_user(user_in: UserIn):
     user_saved = fake_save_user(user_in)
     return user_saved
+
+
+@app.post("/login/")
+async def login(username: str = Form(...), password: str = Form(...)):
+    return {"username": username}
