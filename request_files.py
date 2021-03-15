@@ -3,15 +3,22 @@ from fastapi import (
     FastAPI,
     File,
     UploadFile,
+    Form,
 )
 from fastapi.responses import HTMLResponse
 
 app = FastAPI()
 
 
-@app.post("/files/")
-async def create_file(file: bytes = File(...)):
-    return {"file_size": len(file)}
+@app.post("/file/")
+async def create_file(
+    file: bytes = File(...), fileb: UploadFile = File(...), token: str = Form(...)
+):
+    return {
+        "file_size": len(file),
+        "token": token,
+        "fileb_content_type": fileb.content_type,
+    }
 
 
 @app.post("/uploadfile/")
@@ -39,6 +46,12 @@ async def main():
 </form>
 <form action="/uploadfiles/" enctype="multipart/form-data" method="post">
 <input name="files" type="file" multiple>
+<input type="submit">
+</form>
+<form action="/file/" enctype="multipart/form-data" method="post">
+<input name="file" type="file" multiple>
+<input name="fileb" type="file" multiple>
+<input name="token" type="hidden" value="hogehoge">
 <input type="submit">
 </form>
 </body>
