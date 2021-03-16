@@ -8,5 +8,7 @@ Tutorial of FastAPI https://fastapi.tiangolo.com/
 - request_files.py
   - [Request Files](https://fastapi.tiangolo.com/tutorial/request-files/)
   - [Request Forms and Files](https://fastapi.tiangolo.com/tutorial/request-forms-and-files/)
+- handling_errors.py
+  - [Handling Errors](https://fastapi.tiangolo.com/tutorial/handling-errors/)
 - sql_app/
   - [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/)
