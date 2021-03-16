@@ -10,5 +10,7 @@ Tutorial of FastAPI https://fastapi.tiangolo.com/
   - [Request Forms and Files](https://fastapi.tiangolo.com/tutorial/request-forms-and-files/)
 - handling_errors.py
   - [Handling Errors](https://fastapi.tiangolo.com/tutorial/handling-errors/)
+- path_operation_configuration.py
+  - [Path Operation Configuration](https://fastapi.tiangolo.com/tutorial/path-operation-configuration/)
 - sql_app/
   - [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/)
