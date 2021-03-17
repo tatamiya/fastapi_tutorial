@@ -14,5 +14,7 @@ Tutorial of FastAPI https://fastapi.tiangolo.com/
   - [Path Operation Configuration](https://fastapi.tiangolo.com/tutorial/path-operation-configuration/)
 - json_compatible_encoder.py
   - [JSON Compatible Encoder](https://fastapi.tiangolo.com/tutorial/encoder/)
+- body_updates.py
+  - [Body - Updates](https://fastapi.tiangolo.com/tutorial/body-updates/)
 - sql_app/
   - [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/)
