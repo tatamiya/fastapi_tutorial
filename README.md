@@ -12,5 +12,7 @@ Tutorial of FastAPI https://fastapi.tiangolo.com/
   - [Handling Errors](https://fastapi.tiangolo.com/tutorial/handling-errors/)
 - path_operation_configuration.py
   - [Path Operation Configuration](https://fastapi.tiangolo.com/tutorial/path-operation-configuration/)
+- json_compatible_encoder.py
+  - [JSON Compatible Encoder](https://fastapi.tiangolo.com/tutorial/encoder/)
 - sql_app/
   - [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/)
