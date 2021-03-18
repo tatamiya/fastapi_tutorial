@@ -1,7 +1,5 @@
 from fastapi import Depends, FastAPI, Header, HTTPException
 
-app = FastAPI()
-
 
 async def verify_token(x_token: str = Header(...)):
     if x_token != "fake-super-secret-token":
@@ -14,6 +12,9 @@ async def verify_key(x_key: str = Header(...)):
     return x_key
 
 
-@app.get("/items/", dependencies=[Depends(verify_token), Depends(verify_key)])
+app = FastAPI(dependencies=[Depends(verify_token), Depends(verify_key)])
+
+
+@app.get("/items/")
 async def read_items():
     return [{"item": "Foo"}, {"item": "Bar"}]
