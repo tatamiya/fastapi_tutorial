@@ -16,5 +16,7 @@ Tutorial of FastAPI https://fastapi.tiangolo.com/
   - [JSON Compatible Encoder](https://fastapi.tiangolo.com/tutorial/encoder/)
 - body_updates.py
   - [Body - Updates](https://fastapi.tiangolo.com/tutorial/body-updates/)
+- dependencies/
+  - [Dependencies](https://fastapi.tiangolo.com/tutorial/dependencies/)
 - sql_app/
   - [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/)
