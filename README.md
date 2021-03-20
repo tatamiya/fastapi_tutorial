@@ -18,5 +18,7 @@ Tutorial of FastAPI https://fastapi.tiangolo.com/
   - [Body - Updates](https://fastapi.tiangolo.com/tutorial/body-updates/)
 - dependencies/
   - [Dependencies](https://fastapi.tiangolo.com/tutorial/dependencies/)
+- security.py
+  - [Security](https://fastapi.tiangolo.com/tutorial/security/)
 - sql_app/
   - [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/)
