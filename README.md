@@ -24,5 +24,7 @@ Tutorial of FastAPI https://fastapi.tiangolo.com/
   - [Bigger Applications - Multiple Files](https://fastapi.tiangolo.com/tutorial/bigger-applications/)
 - background_tasks.py
   - [Background Tasks](https://fastapi.tiangolo.com/tutorial/background-tasks/)
+- metadata_and_docs_urls.py
+  - [Metadata and Docs URLs](https://fastapi.tiangolo.com/tutorial/metadata/)
 - sql_app/
   - [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/)
