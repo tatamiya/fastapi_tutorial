@@ -20,5 +20,7 @@ Tutorial of FastAPI https://fastapi.tiangolo.com/
   - [Dependencies](https://fastapi.tiangolo.com/tutorial/dependencies/)
 - security.py
   - [Security](https://fastapi.tiangolo.com/tutorial/security/)
+- bigger_applications.py
+  - [Bigger Applications - Multiple Files](https://fastapi.tiangolo.com/tutorial/bigger-applications/)
 - sql_app/
   - [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/)
