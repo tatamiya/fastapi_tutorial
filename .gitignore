@@ -133,3 +133,6 @@ dmypy.json
 
 # SQLite
 *.db
+
+# artifacts
+*.txt

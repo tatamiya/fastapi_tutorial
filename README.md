@@ -22,5 +22,7 @@ Tutorial of FastAPI https://fastapi.tiangolo.com/
   - [Security](https://fastapi.tiangolo.com/tutorial/security/)
 - bigger_applications.py
   - [Bigger Applications - Multiple Files](https://fastapi.tiangolo.com/tutorial/bigger-applications/)
+- background_tasks.py
+  - [Background Tasks](https://fastapi.tiangolo.com/tutorial/background-tasks/)
 - sql_app/
   - [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/)
