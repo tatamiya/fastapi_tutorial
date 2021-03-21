@@ -30,3 +30,5 @@ Tutorial of FastAPI https://fastapi.tiangolo.com/
   - [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/)
 - testing/
   - [Testing](https://fastapi.tiangolo.com/tutorial/testing/)
+- debugging.py
+  - [Debugging](https://fastapi.tiangolo.com/tutorial/debugging/)
