@@ -28,3 +28,5 @@ Tutorial of FastAPI https://fastapi.tiangolo.com/
   - [Metadata and Docs URLs](https://fastapi.tiangolo.com/tutorial/metadata/)
 - sql_app/
   - [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/)
+- testing/
+  - [Testing](https://fastapi.tiangolo.com/tutorial/testing/)
