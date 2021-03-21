@@ -20,14 +20,14 @@ Tutorial of FastAPI https://fastapi.tiangolo.com/
   - [Dependencies](https://fastapi.tiangolo.com/tutorial/dependencies/)
 - security.py
   - [Security](https://fastapi.tiangolo.com/tutorial/security/)
+- sql_app/
+  - [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/)
 - bigger_applications.py
   - [Bigger Applications - Multiple Files](https://fastapi.tiangolo.com/tutorial/bigger-applications/)
 - background_tasks.py
   - [Background Tasks](https://fastapi.tiangolo.com/tutorial/background-tasks/)
 - metadata_and_docs_urls.py
   - [Metadata and Docs URLs](https://fastapi.tiangolo.com/tutorial/metadata/)
-- sql_app/
-  - [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/)
 - testing/
   - [Testing](https://fastapi.tiangolo.com/tutorial/testing/)
 - debugging.py
