@@ -11,3 +11,5 @@
   - testing_dependencies_with_overrides.py
 - [Testing a Database](https://fastapi.tiangolo.com/advanced/testing-database/)
   - ../sql_app/tests/
+- [Response Cookies](https://fastapi.tiangolo.com/advanced/response-cookies/), [Response Headers](https://fastapi.tiangolo.com/advanced/response-headers/)
+  - responses.py

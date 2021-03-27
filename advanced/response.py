@@ -1,5 +1,5 @@
 from typing import Optional
-from fastapi import FastAPI, Response, Cookie
+from fastapi import FastAPI, Response, Cookie, Header
 
 app = FastAPI()
 
@@ -22,3 +22,9 @@ def delete_cookie(response: Response, fakesession: Optional[str] = Cookie(None))
         return {"message": "Welcome back to the light side, cookies are deleted"}
 
     return {"message": "You are in the light side"}
+
+
+@app.get("/headers-and-object/")
+def get_headers(response: Response):
+    response.headers["X-Cat-Dog"] = "alone in the world"
+    return {"message": "Hello World"}
