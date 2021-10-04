@@ -15,6 +15,10 @@ def get_books():
             title="The Great Gatsby",
             author="F. Scott Fitzgerald",
         ),
+        Book(
+            title="Macbeth",
+            author="W. Shakespeare",
+        ),
     ]
 
 
