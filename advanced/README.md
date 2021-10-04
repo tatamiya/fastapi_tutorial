@@ -13,3 +13,5 @@
   - ../sql_app/tests/
 - [Response Cookies](https://fastapi.tiangolo.com/advanced/response-cookies/), [Response Headers](https://fastapi.tiangolo.com/advanced/response-headers/)
   - response.py
+- [GraphQL](https://fastapi.tiangolo.com/advanced/graphql/)
+  - ./graphql/
