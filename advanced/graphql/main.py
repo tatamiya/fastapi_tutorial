@@ -7,8 +7,13 @@ from strawberry.asgi import GraphQL
 
 @strawberry.type
 class User:
-    name: str
+    first_name: str
+    last_name: str
     age: int
+
+    @strawberry.field
+    def full_name(self) -> str:
+        return f"{self.first_name} {self.last_name}"
 
 
 @strawberry.type
@@ -21,7 +26,7 @@ class Skill:
 class Query:
     @strawberry.field
     def user(self) -> User:
-        return User(name="Patrick", age=100)
+        return User(first_name="Patrick", last_name="Foo", age=100)
 
     @strawberry.field
     def skills(self) -> List[Skill]:
