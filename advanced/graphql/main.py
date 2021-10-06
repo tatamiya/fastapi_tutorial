@@ -59,6 +59,15 @@ class Query:
                 return user
         return None
 
+    @strawberry.field
+    def search_by_skill(self, language: str, min_experiences: int = 0) -> List[User]:
+        results = []
+        for user in users:
+            for skill in user.skills:
+                if skill.language == language and skill.experience > min_experiences:
+                    results.append(user)
+        return results
+
 
 schema = strawberry.Schema(query=Query)
 
