@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import List
 
 import strawberry
@@ -10,6 +12,7 @@ class User:
     first_name: str
     last_name: str
     age: int
+    skills: List[Skill]
 
     @strawberry.field
     def full_name(self) -> str:
@@ -26,15 +29,16 @@ class Skill:
 class Query:
     @strawberry.field
     def user(self) -> User:
-        return User(first_name="Patrick", last_name="Foo", age=100)
-
-    @strawberry.field
-    def skills(self) -> List[Skill]:
-        return [
-            Skill(language="Python", experience=5),
-            Skill(language="Go", experience=2),
-            Skill(language="Rust", experience=1),
-        ]
+        return User(
+            first_name="Patrick",
+            last_name="Foo",
+            age=100,
+            skills=[
+                Skill(language="Python", experience=5),
+                Skill(language="Go", experience=2),
+                Skill(language="Rust", experience=1),
+            ],
+        )
 
 
 schema = strawberry.Schema(query=Query)
